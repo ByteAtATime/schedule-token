@@ -57,7 +57,7 @@ contract TokenSender is Ownable {
         emit Scheduled(id, msg.sender, _receiver, _token, _amount, _releaseTime);
     }
 
-    function executeScheduledSends() external onlyOwner {
+    function executeScheduledSends() external {
         uint256 latestTime = block.timestamp + executionInterval;
 
         for (uint256 i = scheduledSends.length; i > 0; i--) {
