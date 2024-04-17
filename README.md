@@ -1,37 +1,13 @@
-# Scaffold-ETH-Svelte
+# Schedule Token
 
-A port of [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2) into SvelteKit/SvelteJS 5.
+This is a demo app I built to demonstrate the usage of [Scaffold-ETH Svelte](https://github.com/ByteAtATime/scaffold-eth-svelte). It's a very simple dApp that allows you to schedule a token send.
 
-## Getting Started
+## How it works
 
-1. Clone this repo
+There are two parts to this app: the frontend, built in Svelte, and the backend, built in Solidity.
 
-```
-git clone https://github.com/byteatatime/scaffold-eth-svelte.git
-cd scaffold-eth-svelte
-yarn
-```
+There are minimal changes to the Hardhat backend, the only change being in `packages/hardhat/deploy/99_generateTsAbis.ts` where the path of the resulting contract is changed.
 
-2. Run a local chain
+The bulk of the changes are in the Svelte frontend, located at `packages/svelte`.
 
-```
-yarn chain
-```
-
-3. On a second terminal, deploy the example contract
-
-```
-yarn deploy
-```
-
-4. Start the frontend
-
-```
-yarn start
-```
-
-Your app should now be running on `http://localhost:5173`.
-
-## Documentation
-
-This part is currently WIP. For now, you can refer to the [Scaffold-ETH 2](https://docs.scaffoldeth.io/) documentation, as most of the concepts are the same.
+Lastly, to execute the token sends, I have set up a simple `cron` job running every 15 minutes that calls the `executeScheduledSends` function in the contract. The script is very simple, and can be found at `execute.js`.
