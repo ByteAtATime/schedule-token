@@ -67,8 +67,6 @@
   <div class="container flex max-w-screen-md flex-col rounded-3xl bg-base-100 p-8">
     <h1 class="text-4xl font-bold">Schedule token send</h1>
 
-    {allowance}
-
     <label class="form-control w-full">
       <input class="absolute left-0 top-0 h-0 w-0" aria-hidden />
 
